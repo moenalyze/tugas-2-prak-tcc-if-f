@@ -20,7 +20,8 @@ const Note = sequelize.define("Note", {
     defaultValue: DataTypes.NOW,
   }
 }, {
-  timestamps: false // Biar gak error nyari kolom createdAt bawaan Sequelize
+  timestamps: false, // Biar gak error nyari kolom createdAt bawaan Sequelize
+  tableName: "notes"
 });
 
 module.exports = Note;
