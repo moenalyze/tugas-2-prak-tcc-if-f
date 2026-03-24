@@ -1,0 +1,23 @@
+### 1. Lihat Daftar Catatan (GET)
+GET http://localhost:5000/api/v1/notes
+
+### 2. Tambah Catatan Baru (POST)
+POST http://localhost:5000/api/v1/notes
+Content-Type: application/json
+
+{
+  "judul": "Test via REST Client",
+  "isi": "Ini adalah isi catatan dari VS Code"
+}
+
+### 3. Edit Catatan (PUT)
+PUT http://localhost:5000/api/v1/notes/1
+Content-Type: application/json
+
+{
+  "judul": "Judul Diedit",
+  "isi": "Isinya juga diedit"
+}
+
+### 4. Hapus Catatan (DELETE)
+DELETE http://localhost:5000/api/v1/notes/1
