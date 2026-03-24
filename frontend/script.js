@@ -11,7 +11,7 @@ async function getNotes() {
         container.innerHTML = ""; // Kosongin daftar sebelum diisi ulang
 
         if (notes.length === 0) {
-            container.innerHTML = "<p>Belum ada catatan nih...</p>";
+            container.innerHTML = "<p>Belum ada catatan</p>";
             return;
         }
 
@@ -28,7 +28,7 @@ async function getNotes() {
             `;
         });
     } catch (error) {
-        console.error("Gagal ngambil data:", error);
+        console.error("Gagal mengambil data:", error);
     }
 }
 
@@ -39,7 +39,7 @@ async function simpanCatatan() {
     const isi = document.getElementById("isi").value;
 
     if (!judul || !isi) {
-        alert("Judul dan isi gak boleh kosong bro!");
+        alert("Judul dan isi tidak boleh kosong!");
         return;
     }
 
@@ -70,7 +70,7 @@ async function simpanCatatan() {
         // Panggil data terbaru biar halamannya ke-refresh
         getNotes();
     } catch (error) {
-        console.error("Gagal nyimpen data:", error);
+        console.error("Gagal menyimpan data:", error);
     }
 }
 
@@ -83,14 +83,14 @@ function siapEdit(id, judul, isi) {
 
 // 4. Fitur DELETE: Hapus catatan
 async function hapusCatatan(id) {
-    if (confirm("Yakin mau dihapus bro?")) {
+    if (confirm("Yakin mau dihapus?")) {
         try {
             await fetch(`${API_URL}/${id}`, {
                 method: "DELETE"
             });
             getNotes();
         } catch (error) {
-            console.error("Gagal ngehapus data:", error);
+            console.error("Gagal menghapus data:", error);
         }
     }
 }
